@@ -35,9 +35,11 @@ app.delete('/jogos/:id',async(req,res)=>{
     res.json(produtoDeletado);
 });
 
+const PORT = process.env.PORT || 3000;
+
 client.connect()
     .then(()=>{
         console.log('CONECTADO AO MONGODB'),
-        app.listen(3000,()=>console.log('API RODANDO NA PORTA 3000'))
+        app.listen(PORT, () => console.log(`API RODANDO NA PORTA ${PORT}`))
     })
     .catch((erro)=>console.log('ERRO AO CONECTAR',erro.message))
